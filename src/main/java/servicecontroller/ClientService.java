@@ -17,7 +17,6 @@ public class ClientService {
         System.out.print("Nombre: ");
         String name = sc.nextLine();
         client.setName(name);
-        System.out.println(name);
         sc.nextLine();
         System.out.print("Apellido: ");
         String lastName = sc.nextLine();

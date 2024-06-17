@@ -15,6 +15,7 @@ public class Conexion {
             if (connection != null) {
                 System.out.println("Database is conenected!!");
             }
+
         }catch (SQLException e) {
             System.out.println(e.toString());
         }

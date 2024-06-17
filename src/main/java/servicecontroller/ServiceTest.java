@@ -1,6 +1,7 @@
 package servicecontroller;
 
 import model.Client;
+import model.Employee;
 
 import java.util.Scanner;
 
@@ -53,11 +54,13 @@ public class ServiceTest {
 
         } else if (opc == 2) {
 
+            Employee employee = new Employee();
+            EmployeeService es = new EmployeeService();
+            es.registerEmployee(employee);
+
             System.out.println("Escogio la opcion 2");
 
         }
-
-
 
     }
 }

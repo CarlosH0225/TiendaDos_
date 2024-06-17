@@ -1,6 +1,6 @@
 package daocontroller;
 
-import conexion.Conexion;
+import conexion.SingletonConexionDB;
 import model.Category;
 
 import java.sql.Connection;
@@ -12,40 +12,42 @@ public class CategoryDao {
 
     public static void createCategoryDao(Category category) {
 
-        Conexion conexion = new Conexion();
+        //Conexion conexion = new Conexion();
+        Connection conn = SingletonConexionDB.getConnection();
 
-        try (Connection connect = conexion.getConnectDB()) {
+        //try (Connection connect = conexion.getConnectDB()) {
 
-            PreparedStatement ps = null;
-            try {
+        PreparedStatement ps = null;
+        try {
 
-                String query = "INSERT INTO category(category_name) VALUES(?)";
-                ps = connect.prepareStatement(query);
-                ps.setString(1, category.getCategoryName()); //
-                ps.executeUpdate();
+            String query = "INSERT INTO category(category_name) VALUES(?)";
+            ps = conn.prepareStatement(query);
+            ps.setString(1, category.getCategoryName()); //
+            ps.executeUpdate();
 
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-
-        } catch (SQLException ex){
-            System.out.println(ex.toString());
+        } catch (SQLException e) {
+            System.out.println("Error guardando categoria: " + e.getMessage());
         }
+
+//        } catch (SQLException ex){
+//            System.out.println(ex.toString());
+//        }
 
     }
 
     public static void selectCategoryDao() {
 
-        Conexion conexion = new Conexion();
-
+        // Conexion conexion = new Conexion();
+        Connection conn = SingletonConexionDB.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        try (Connection connect = conexion.getConnectDB()) {
+        //try (Connection connect = conexion.getConnectDB()) {
+        try {
 
             String query = "SELECT * FROM category";
 
-            ps = connect.prepareStatement(query);
+            ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -61,27 +63,20 @@ public class CategoryDao {
 
     public static void deleteCategory(int idCategory) {
 
-        Conexion conexion = new Conexion();
+        Connection connect = SingletonConexionDB.getConnection();
 
-        try (Connection connect = conexion.getConnectDB()) {
+        PreparedStatement ps = null;
+        try {
 
-            PreparedStatement ps = null;
-            try {
+            String query = "DELETE FROM category WHERE category.id_category = ?";
+            ps = connect.prepareStatement(query);
+            ps.setInt(1, idCategory);
+            ps.executeUpdate();
+            System.out.println("Se ha eliminado la categoria correctamente");
 
-                String query = "DELETE FROM category WHERE category.id_category = ?";
-                ps = connect.prepareStatement(query);
-                ps.setInt(1, idCategory);
-                ps.executeUpdate();
-                System.out.println("Se ha eliminado la categoria correctamente");
-
-            } catch (SQLException er) {
-                System.out.println(er.toString());
-            }
-
-        } catch (SQLException ex){
-            System.out.println(ex.toString());
+        } catch (SQLException er) {
+            System.out.println("Error eliminando categoria: " + er.toString());
         }
-
 
     }
 

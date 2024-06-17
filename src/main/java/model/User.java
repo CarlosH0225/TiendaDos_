@@ -21,8 +21,6 @@ public class User {
         this.passwd = passwd;
     }
 
-
-
     public int getId() {
         return id;
     }
