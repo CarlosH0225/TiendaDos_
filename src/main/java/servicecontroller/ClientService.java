@@ -15,7 +15,7 @@ public class ClientService {
         int id = sc.nextInt();
         client.setId(id);
         System.out.print("Nombre: ");
-        String name = sc.nextLine();
+        String name = sc.next();
         client.setName(name);
         sc.nextLine();
         System.out.print("Apellido: ");
@@ -23,19 +23,19 @@ public class ClientService {
         client.setLast_name(lastName);
         sc.nextLine();
         System.out.print("Celular: ");
-        String phone = sc.nextLine();
+        String phone = sc.next();
         client.setPhone(phone);
         sc.nextLine();
-        System.out.print("Correo Electronico: ");
-        String mail = sc.nextLine();
+        System.out.print("Correo electronico: ");
+        String mail = sc.next();
         client.setMail(mail);
         sc.nextLine();
         System.out.print("Contraseña (debe contener 8 caracteres): ");
-        String passwd = sc.nextLine();
+        String passwd = sc.next();
         client.setPasswd(passwd);
         sc.nextLine();
         System.out.print("Tipo: ");
-        String type = sc.nextLine();
+        String type = sc.next();
         client.setType(type);
 
         ClientDao.createClient(client);

@@ -29,7 +29,7 @@ public class HidePasswd {
     public void changeCharacter() {
 
         for (int i = 0; i < passw.length(); i++) {
-            if ((passw.charAt(i) >= 'a' && passw.charAt(i) <= 'z') || passw.charAt(i) <= 9) {
+            if ((passw.charAt(i) >= 'a' && passw.charAt(i) <= 'z') || (passw.charAt(i) >= '0' && passw.charAt(i) <= '9')) {
                 hidePassw += '*';
             }
         }

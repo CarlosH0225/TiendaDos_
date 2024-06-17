@@ -39,27 +39,46 @@ public class ServiceTest {
         System.out.println("Eliga el tipo de usuario: \n 1 - Cliente \n 2 - Empleado ");
         int opc = scanner.nextInt();
 
-        if (opc == 1) {
+        switch (opc) {
 
-            Client customer = new Client();
-            ClientService cs = new ClientService();
+            case 1:
+                Client customer = new Client();
+                ClientService cs = new ClientService();
+                //cs.registerClient(customer);
+                cs.showClient();
 
-            //cs.registerClient(customer);
+                System.out.print("¿Desea eliminar un cliente? Si(S) o no(N) ");
 
-            cs.showClient();
+                String option = scanner.next();
 
-            System.out.print("Digite por favor el item del cliente a eliminar: " );
-            int id = scanner.nextInt();
-            cs.deleteClient(id);
+                if (option.contains("S") || option.contains("s")) {
+                    System.out.print("Ingrese el item del cliente: ");
+                    int id = scanner.nextInt();
+                    cs.deleteClient(id);
+                }
+                break;
 
-        } else if (opc == 2) {
+            case 2:
 
-            Employee employee = new Employee();
-            EmployeeService es = new EmployeeService();
-            es.registerEmployee(employee);
+                Employee employee = new Employee();
+                EmployeeService es = new EmployeeService();
+                //es.registerEmployee(employee);
+                es.showEmployee();
 
-            System.out.println("Escogio la opcion 2");
+                System.out.print("¿Desea eliminar un empleado? Si(S) o no(N) ");
+                String opt = scanner.next();
 
+                if (opt.contains("S") || opt.contains("s")) {
+                    System.out.print("Ingrese el item del empleado: ");
+                    int id = scanner.nextInt();
+                    es.deleteEmployee(id);
+                }
+
+                break;
+
+            default:
+                System.out.println("Opcion invalida");
+                break;
         }
 
     }

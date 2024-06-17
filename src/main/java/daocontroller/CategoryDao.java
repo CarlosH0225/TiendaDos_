@@ -24,6 +24,7 @@ public class CategoryDao {
             ps = conn.prepareStatement(query);
             ps.setString(1, category.getCategoryName()); //
             ps.executeUpdate();
+            System.out.println("Categoria " + category.getCategoryName() + " almacenado correctamente.");
 
         } catch (SQLException e) {
             System.out.println("Error guardando categoria: " + e.getMessage());

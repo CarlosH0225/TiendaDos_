@@ -28,7 +28,7 @@ public class ClientDao {
             preparedStatement.setString(7, client.getType());
 
             if (preparedStatement.executeUpdate() == 1) {
-                System.out.println("Cliente registrado correctamente");
+                System.out.println("Cliente " + client.getName() + " registrado correctamente");
             }
 
         } catch (SQLException er) {

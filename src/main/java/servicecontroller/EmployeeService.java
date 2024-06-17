@@ -15,30 +15,44 @@ public class EmployeeService {
         int id = sc.nextInt();
         employee.setId(id);
         System.out.print("Nombre: ");
-        String name = sc.nextLine();
-        employee.setName(name);
+        String name = sc.next();
         sc.nextLine();
+        employee.setName(name);
         System.out.print("Apellido: ");
         String lastName = sc.nextLine();
+
         employee.setLast_name(lastName);
         sc.nextLine();
         System.out.print("Celular: ");
-        String cellphone = sc.nextLine();
+        String cellphone = sc.next();
         employee.setPhone(cellphone);
         sc.nextLine();
         System.out.print("Correo electronico: ");
-        String email = sc.nextLine();
+        String email = sc.next();
         employee.setMail(email);
         sc.nextLine();
-        System.out.print("Contraseña: ");
-        String passwd = sc.nextLine();
+        System.out.print("Contraseña (debe contener 8 caracteres): ");
+        String passwd = sc.next();
         employee.setPasswd(passwd);
         sc.nextLine();
         System.out.print("Cargo: ");
-        String position = sc.nextLine();
+        String position = sc.next();
         employee.setPosition(position);
 
         EmployeeDao.createEmployee(employee);
 
     }
+
+    public void showEmployee() {
+
+        EmployeeDao.showEmployee();
+
+    }
+
+    public void deleteEmployee(int id) {
+
+        EmployeeDao.deleteEmployee(id);
+
+    }
+
 }
