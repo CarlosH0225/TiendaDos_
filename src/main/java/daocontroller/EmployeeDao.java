@@ -2,6 +2,7 @@ package daocontroller;
 
 import conexion.SingletonConexionDB;
 import model.*;
+import utilities.HidePasswd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

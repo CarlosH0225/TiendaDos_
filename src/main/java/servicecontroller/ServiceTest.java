@@ -87,5 +87,18 @@ public class ServiceTest {
         SalesService salesService = new SalesService();
         salesService.registerSales(sales);
 
+        salesService.showSales();
+
+        System.out.print("¿Desea eliminar un registro de venta? Si(S) o no(N) ");
+        String opt = scanner.next();
+        if (opt.contains("S") || opt.contains("s")) {
+            System.out.print("Ingrese el ID del registro que desea eliminar: ");
+            int idDelete = scanner.nextInt();
+            salesService.deleteSale(idDelete);
+        } else {
+            System.out.println("¡Gracias por su visita!");
+        }
+
     }
+
 }

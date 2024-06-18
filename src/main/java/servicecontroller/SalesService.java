@@ -41,5 +41,16 @@ public class SalesService {
 
     }
 
+    public void showSales() {
+
+        SalesDao.showSales();
+
+    }
+
+    public void deleteSale (int idDel) {
+
+        SalesDao.deleteSale(idDel);
+
+    }
 
 }
