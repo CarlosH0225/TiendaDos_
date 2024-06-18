@@ -1,8 +1,7 @@
 package daocontroller;
 
 import conexion.SingletonConexionDB;
-import model.Client;
-import model.Employee;
+import model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

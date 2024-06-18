@@ -2,6 +2,7 @@ package servicecontroller;
 
 import model.Client;
 import model.Employee;
+import model.Sales;
 
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class ServiceTest {
         int item = scanner.nextInt();
         prodServ.deleteProduct(item);
         */
-
+/*
         System.out.println("Eliga el tipo de usuario: \n 1 - Cliente \n 2 - Empleado ");
         int opc = scanner.nextInt();
 
@@ -80,6 +81,11 @@ public class ServiceTest {
                 System.out.println("Opcion invalida");
                 break;
         }
+        */
+
+        Sales sales = new Sales();
+        SalesService salesService = new SalesService();
+        salesService.registerSales(sales);
 
     }
 }
